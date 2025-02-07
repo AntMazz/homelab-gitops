@@ -1,0 +1,19 @@
+name: Validate Kubernetes Manifests
+
+on:
+  pull_request:
+    paths:
+      - 'manifests/**.yaml'
+      - 'apps/**/**.yaml'
+      - '**/*.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Lint YAML files
+      uses: redhat-actions/yaml-lint-action@v1
