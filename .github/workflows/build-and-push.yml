@@ -20,7 +20,7 @@ jobs:
       - name: Log in to Harbor (or Docker Hub)
         uses: docker/login-action@v2
         with:
-          registry: harbor.yourdomain.com  # Change this if using Docker Hub
+          registry: harbor.yourdomain.com  
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
 
