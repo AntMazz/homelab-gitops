@@ -7,7 +7,7 @@ Everything is automated with **ArgoCD, GitLab CI/CD, and Helm**.
 ## 🛠️ Tools Used
 - Kubernetes (K3s)
 - ArgoCD for GitOps
-- GitHub CI/CD for automation
+- GitHub Actions for automation
 - Harbor (private registry)
 - Helm for package management
 - Prometheus & Grafana (Monitoring)
