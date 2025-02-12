@@ -28,4 +28,3 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
----
