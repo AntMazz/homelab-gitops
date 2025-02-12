@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Docker Image for NGINX
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nginx-app:latest ./apps/nginx
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nginx-app:latest
