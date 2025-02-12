@@ -21,3 +21,4 @@ jobs:
         uses: ibiqlik/action-yamllint@v3
         with:
           format: github
+---

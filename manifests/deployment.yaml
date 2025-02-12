@@ -19,3 +19,4 @@ spec:
           image: docker.io/${DOCKERHUB_USERNAME}/my-app:latest
           ports:
             - containerPort: 80
+---
