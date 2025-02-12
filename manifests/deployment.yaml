@@ -1,10 +1,11 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app
-  namespace: default 
+  namespace: default
 spec:
-  replicas: 2  
+  replicas: 2
   selector:
     matchLabels:
       app: my-app
@@ -14,7 +15,7 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-app
-        image: docker.io/${DOCKERHUB_USERNAME}/my-app:latest  # 🔹 Docker Hub image
-        ports:
-        - containerPort: 80
+        - name: my-app
+          image: docker.io/${DOCKERHUB_USERNAME}/my-app:latest
+          ports:
+            - containerPort: 80
