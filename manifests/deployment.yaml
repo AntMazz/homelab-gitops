@@ -15,7 +15,7 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-app
-        image: docker.io/${DOCKERHUB_USERNAME}/my-app:latest  #  Docker Hub image
-        ports:
-        - containerPort: 80
+        - name: my-app
+          image: docker.io/${DOCKERHUB_USERNAME}/my-app:latest
+          ports:
+            - containerPort: 80
