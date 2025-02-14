@@ -23,24 +23,24 @@ spec:
   allocateLoadBalancerNodePorts: true
   clusterIP: 10.43.52.130
   clusterIPs:
-  - 10.43.52.130
+    - 10.43.52.130
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
-  - IPv4
+    - IPv4
   ipFamilyPolicy: SingleStack
   loadBalancerIP: 192.168.178.202
   ports:
-  - name: http
-    nodePort: 30969
-    port: 80
-    protocol: TCP
-    targetPort: 8080
-  - name: https
-    nodePort: 31862
-    port: 443
-    protocol: TCP
-    targetPort: 8080
+    - name: http
+      nodePort: 30969
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    - name: https
+      nodePort: 31862
+      port: 443
+      protocol: TCP
+      targetPort: 8080
   selector:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/name: argocd-server
@@ -49,5 +49,5 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 192.168.178.202
-      ipMode: VIP
+      - ip: 192.168.178.202
+        ipMode: VIP
