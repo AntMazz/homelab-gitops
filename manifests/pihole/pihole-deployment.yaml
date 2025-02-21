@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,29 +14,29 @@ spec:
         app: pihole
     spec:
       containers:
-      - name: pihole
-        image: pihole/pihole:latest
-        ports:
-        - containerPort: 80   # Web UI
-        - containerPort: 53   # DNS (UDP/TCP)
-        env:
-        - name: TZ
-          valueFrom:
-            configMapKeyRef:
-              name: pihole-config
-              key: TZ
-        - name: WEBPASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: pihole-secret
-              key: WEBPASSWORD
-        volumeMounts:
-        - mountPath: /etc/pihole
-          name: pihole-storage
-        - mountPath: /etc/dnsmasq.d
-          name: dnsmasq-storage
+        - name: pihole
+          image: pihole/pihole:latest
+          ports:
+            - containerPort: 80   # Web UI
+            - containerPort: 53   # DNS (UDP/TCP)
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: pihole-config
+                  key: TZ
+            - name: WEBPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pihole-secret
+                  key: WEBPASSWORD
+          volumeMounts:
+            - mountPath: /etc/pihole
+              name: pihole-storage
+            - mountPath: /etc/dnsmasq.d
+              name: dnsmasq-storage
       volumes:
-      - name: pihole-storage
-        emptyDir: {}  # <-- Tijdelijk storage, straks wordt vervangen door PersistentVolumeClaim
-      - name: dnsmasq-storage
-        emptyDir: {}  # <-- Tijdelijk storage, straks wordt vervangen door PersistentVolumeClaim
+        - name: pihole-storage
+          emptyDir: {} #straks wordt vervangen in PersistentVolumeClaim
+        - name: dnsmasq-storage
+          emptyDir: {} #straks wordt vervangen in PersistentVolumeClaim
