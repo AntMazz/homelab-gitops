@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pihole
+spec:
+  destination:
+    name: ''
+    namespace: pihole
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: manifests/pihole
+    repoURL: 'https://github.com/AntMazz/homelab-gitops'
+    targetRevision: main
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=false  # Voorkomt dat ArgoCD de Kubernetes secret verwijdert!

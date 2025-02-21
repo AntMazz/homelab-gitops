@@ -1,0 +1,12 @@
+---
+apiVersion: v1  #nog niet gebruikt in de deployment, wacht op de nas
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-pvc
+  namespace: pihole
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
